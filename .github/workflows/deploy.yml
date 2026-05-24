@@ -32,7 +32,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/si-2026-lab3:${{ github.ref_name }}-latest
 
- deploy-pages:
+  deploy-pages:
     runs-on: ubuntu-latest
     needs: lint-html
     if: github.ref_name == 'master'
@@ -48,6 +48,3 @@ jobs:
       - uses: actions/upload-pages-artifact@v4
         with:
           path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
